@@ -1,0 +1,120 @@
+CREATE DATABASE Firma;
+GO
+USE Firma;
+GO
+CREATE TABLE Radnik (
+	idbr INT NOT NULL,
+	ime CHAR(25) NOT NULL,
+	prezime CHAR(25),
+	posao CHAR(10),
+	kvalif CHAR(3),
+	rukovodilac INT,
+	datzap DATETIME,
+	premija FLOAT(1),
+	plata FLOAT(1) DEFAULT 0
+);
+GO
+CREATE TABLE Odeljenje (
+	brod SMALLINT NOT NULL PRIMARY KEY,
+	imeod CHAR(15) NOT NULL,
+	mesto CHAR(20),
+	sefod INT
+
+);
+GO
+CREATE TABLE Projekat (
+	brproj INT ,
+	imeproj CHAR(25) UNIQUE NOT NULL,
+	sredstva FLOAT(2),
+	rok DATETIME,
+	CONSTRAINT PK_BRPROJ PRIMARY KEY (brproj)
+);
+GO
+CREATE TABLE Ucesce (
+	idbr INT NOT NULL,
+	brproj INT NOT NULL,
+	brsati INT,
+	funckija CHAR(15),
+	CONSTRAINT FK_BRPROJ FOREIGN KEY (brproj) REFERENCES Projekat(brproj)
+);
+GO
+
+ALTER TABLE Odeljenje ADD brzap INT;
+ALTER TABLE Radnik ADD brod SMALLINT;
+ALTER TABLE Ucesce ALTER COLUMN brsati SMALLINT;
+ALTER TABLE Radnik ALTER COLUMN prezime CHAR(25) NOT NULL;
+ALTER TABLE Odeljenje DROP COLUMN brzap;
+
+INSERT INTO Odeljenje VALUES
+(10,'Komercijala','Novi Beograd',5662),
+(20,'Plan','Dorcol',5780),
+(30,'Prodaja','Stari Grad',5786),
+(40,'Direkcija','Banovo Brdo',5842),
+(50,'Racunarski Cent','Zemun',NULL);
+GO
+INSERT INTO Projekat VALUES
+(100,'uvoz',3000000,'2004-05-05'),
+(200,'izvoz',2000000,'2005-08-22'),
+(300,'plasman',6000000,'2004-12-2'),
+(400,'projektovanje',5000000,'2005-4-14'),
+(500,'izgradnja',0,'2005-8-22');
+GO
+INSERT INTO Radnik VALUES
+(5367,'Petar','Vasic','vozac','KV',5780,'1978-1-1',1900,1300,20),
+(5497,'Aleksandar','Maric','elektricar','KV',5662,'1990-2-17',800,1000,20),
+(5519,'Vanja','Kondic','prodavac','VKV',5662,'1991-11-7',1300,1200,10),
+(5652,'Jovan','Peric','elektricar','KV',5662,'1980-5-31',500,1000,10),
+(5662,'Janko','Mancic','upravnik','VSS',6789,'1993-8-12',NULL,2400,10),
+(5696,'Mirjana','Dimic','cistac','KV',5662,'1991-9-30',0,1000,10),
+(5780,'Bozidar','Ristic','upravnik','VSS',6789,'1984-8-11',NULL,2200,20),
+(5786,'Pavle','Sotra','upravnik','VSS',6789,'1983-5-22',NULL,2800,30),
+(5842,'Milos','Markovic','direktor','VSS',NULL,'1981-12-15',NULL,3000,40),
+(5867,'Svetlana','Grubac','savetnik','VSS',5842,'1970-8-8',NULL,2750,40),
+(5874,'Tomislav','Bogovac','elektricar','KV',5662,'1971-4-19',1100,1000,10),
+(5898,'Andrija','Ristic','nabavljac','KV',5786,'1980-1-20',1200,1100,30),
+(5900,'Slobodan','Petrovic','vozac','KV',5780,'2002-10-3',1300,900,20),
+(5932,'Mitar','Vukovic','savetnik','VSS',5842,'2000-3-25',NULL,2600,20),
+(5953,'Jovan','Peric','nabavljac','KV',5786,'1979-1-12',0,1100,30),
+(6234,'Marko','Nastic','analiticar','VSS',5867,'1990-12-17',3000,1300,30),
+(6789,'Janko','Simic','upravnik','VSS',5842,'2003-12-23',10,3900,40),
+(7890,'Ivan','Buha','analiticar','VSS',5867,'2003-12-17',3200,1600,20),
+(7892,'Luka','Boskovic','analiticar','VSS',5867,'2004-5-20',NULL,2000,NULL);
+GO
+
+
+INSERT INTO Ucesce
+VALUES(5497,400,2000,'IZVRSILAC'),
+(5652,100,1000,'IZVRSILAC'),
+(5652,300,1000,'IZVRSILAC'),
+(5662,300,2000,'SEF'),
+(5696,200,2000,'SEF'),
+(5696,300,2000,'IZVRSILAC'),
+(5780,200,2000,'ORGANIZATOR'),
+(5786,100,2000,'KONSULTANT'),
+(5842,100,2000,'SEF'),
+(5867,200,2000,'KONSULTANT'),
+(5898,200,2000,'IZVRSILAC'),
+(5900,100,2000,'IZVRSILAC'),
+(5932,100,500,'KONSULTANT'),
+(5932,200,1000,'ORGANIZATOR'),
+(5932,300,500,'NADZORNIK'),
+(5953,100,1000,'IZVRSILAC'),
+(5953,300,1000,'IZVRSILAC'),
+(6234,100,500,'NADZORNIK'),
+(6234,200,1200,'IZVRSILAC'),
+(6234,300,300,'KONSULTANT'),
+(6789,200,2000,'IZVRSILAC'),
+(7890,300,2000,'IZVRSILAC');
+GO
+
+
+/*ALTER TABLE Projekat ADD CONSTRAINT CK_ROK_PROJEKTA CHECK(rok>GETDATE());*/
+ALTER TABLE Radnik ADD CONSTRAINT CK_KVALIF CHECK(kvalif in ('VKV','KV','VSS'));
+ALTER TABLE Odeljenje ADD CONSTRAINT CU_ODELJENJA UNIQUE(imeod);
+ALTER TABLE Radnik ADD CONSTRAINT PK_IDBR_RADNIK PRIMARY KEY (idbr);
+ALTER TABLE Ucesce ADD CONSTRAINT PK_UCESCE PRIMARY KEY (idbr,brproj);
+ALTER TABLE Radnik ADD CONSTRAINT FK_BROD FOREIGN KEY (brod) REFERENCES Odeljenje(brod);
+ALTER TABLE Odeljenje ADD CONSTRAINT FK_SEFOD FOREIGN KEY (sefod) REFERENCES Radnik(idbr);
+ALTER TABLE Ucesce ADD CONSTRAINT FK_IDBR FOREIGN KEY (idbr) REFERENCES Radnik (idbr);
+ALTER TABLE Radnik ADD CONSTRAINT FK_RUKOVODILAC FOREIGN KEY (rukovodilac) REFERENCES Radnik(idbr);
+/*ALTER TABLE Projekat DROP CONSTRAINT CK_ROK_PROJEKTA;*/
