@@ -1,0 +1,29 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="text/javascript">
+			function PiQ() {
+				let p = prompt("Unesite P ");
+				let q = prompt("Unesite Q ");
+				let rezultat = "";
+				if (p == q) 
+                    alert("P je jednako Q");
+				if (p > q)
+					for (let i = q; i < p; i++)
+						if (i % 2 == 0) 
+                            rezultat += i + " ";
+				if (p < q)
+					for (let i = p; i < q; i++) 
+                        if (i % 2 == 1) 
+                            rezultat += i + " ";
+				alert(rezultat);
+			}
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="button" onclick="PiQ()" value="PiQ" />
+	</body>
+</html>

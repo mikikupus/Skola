@@ -1,0 +1,110 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+			let pozicijateksta = 0;
+			let tekst = "TV Smederevo, Ime i Prezime ";
+			function scroll() {
+				pozicijateksta = (pozicijateksta + 1) % tekst.length;
+				let a = tekst.split("");
+				for (let i = 0; i < pozicijateksta; i++) {
+					a.push(tekst[i]);
+					a.shift();
+				}
+				document.getElementById("klizni_text").value = a.join("");
+				setInterval(scroll, 500);
+			}
+			var slika = 1;
+			var nizslika = Array();
+			var timeout;
+			function start() {
+				for (let i = 0; i < 5; i++) nizslika.push("slike/slika" + i + ".png");
+				slajdovanje(slika);
+			}
+			function slajdovanje(slika) {
+				console.log(slika);
+				switch (slika) {
+					case 1:
+						document.getElementById("slide").src = nizslika[slika - 1];
+					case 2:
+						document.getElementById("slide").src = nizslika[slika - 1];
+					case 3:
+						document.getElementById("slide").src = nizslika[slika - 1];
+					case 4:
+						document.getElementById("slide").src = nizslika[slika - 1];
+				}
+				if (slika >= 4) slika = 1;
+				else slika++;
+				timeout = setTimeout(slajdovanje, 1000, slika);
+			}
+			function stoptimer(srcslika) {
+				clearTimeout(timeout);
+				document.getElementById("slide").src = srcslika;
+			}
+			function vreme() {
+				let datum = new Date();
+				document.getElementById("datum").innerHTML =
+					datum.getDate() +
+					"/" +
+					(datum.getMonth() + 1) +
+					"/" +
+					datum.getFullYear() +
+					"<br>" +
+					datum.toLocaleTimeString();
+				setInterval(vreme, 10);
+			}
+			function Pauziraj() {
+				clearTimeout(timeout);
+			}
+		</script>
+		<title>Document</title>
+	</head>
+	<body onload="start();vreme();scroll();">
+		<center>
+			<input
+				type="text"
+				id="klizni_text"
+				readonly
+				value=" TS Smederevo, Ime i Prezime"
+			/>
+			<br />
+			<img id="slide" width="400px" height="400px" />
+			<br />
+			<img
+				src="slike/slika1.png"
+				onmouseout="slajdovanje(1)"
+				onmouseover="stoptimer(this.src)"
+				width="150px"
+				height="150px"
+			/>
+			<img
+				src="slike/slika2.png"
+				onmouseout="slajdovanje(2)"
+				onmouseover="stoptimer(this.src)"
+				width="150px"
+				height="150px"
+			/>
+			<img
+				src="slike/slika3.png"
+				onmouseout="slajdovanje(3)"
+				onmouseover="stoptimer(this.src)"
+				width="150px"
+				height="150px"
+			/>
+			<img
+				src="slike/slika4.png"
+				onmouseout="slajdovanje(4)"
+				onmouseover="stoptimer(this.src)"
+				width="150px"
+				height="150px"
+			/>
+			<div id="datum"></div>
+			<br />
+			<button onclick="slajdovanje(slika)">Kreni</button>
+			<button onclick="Pauziraj()">Pauziraj</button>
+		</center>
+		<!--<input type="text" id="klizni_text" value = "TS Smederevo, Ime i Prezime">-->
+	</body>
+</html>

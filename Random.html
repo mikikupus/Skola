@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="text/javascript">
+			/*for (i = 1; i <= 10; i++)
+			         {
+				document.write("PROBA " + i);
+				document.write("<br>");
+			}*/
+			function disp_alert() {
+				alert(
+					"Zdravo ponovo! Ovako mi" + "\n" + "dodajemo novi red u alert boxu!"
+				);
+			}
+			function ucitaj() {
+				alert("Dobrodosli na stranicu, pritisnite dugme potvrdi za dalje!!!");
+			}
+			function disp_confirm() {
+				var name = confirm("Pritisni dugme");
+				if (name == true) {
+					document.write("Pritisnuli ste U REDU dugme!");
+				} else {
+					document.write("Pritisnuli ste OTKAZI!");
+				}
+			}
+			function disp_prompt() {
+				var name2 = prompt("Molim vas, unesite ime", "ime");
+				if (name2 != null && name2 != "")
+					document.write("Zdravo " + name2 + "! Kako ste danas?");
+				else document.write("Doslo je do greske !!!");
+			}
+			function proba_prompt() {
+				let n = prompt("Unesite broj ponavljanja");
+				for (let i = 0; i < n; i++) document.write("PROBA", i, "<br>");
+			}
+			function Radi() {
+				let n = prompt("Unesi broj ponavljanja", "10");
+				if (n >= 1 && n <= 6)
+					for (let i = 1; i <= n; i++) {
+						document.write("<h" + i + "> NEMA KUCI DOK NE NAUCITE JS !!!");
+						document.write("</h" + i + ">");
+					}
+				else document.write("GRESKA!");
+			}
+			/*for(let i =1;i<6;i++)
+			{
+			    document.write("<h" + i +"> NEMA KUCI DOK NE NAUCITE JS !!!")
+			    document.write("</h" + i + ">")
+			}*/
+			function kub_i_kvadrat() {
+				let n = prompt("Unesite broj", "10");
+				for (let i = 1; i <= n; i++) {
+					if (i % 2 == 1)
+						document.write("Kub broja " + i + " je " + i * i * i + "<br>");
+					else document.write("Kvadrat broja " + i + " je " + i * i + "<br>");
+				}
+			}
+			function na_kvadrat() {
+				let i = prompt("Unesite i", "");
+				document.write(i + " na drugi je " + i * i);
+			}
+		</script>
+		<title>Document</title>
+	</head>
+	<body onload="ucitaj()">
+		<form id="form1">
+			<input type="button" onclick="disp_alert()" value="PRITISNI ME!" />
+			<input type="button" onclick="disp_confirm()" value="KLIKNI" />
+			<input type="button" onclick="disp_prompt()" value="Pokreni prompt box" />
+			<input type="button" onclick="proba_prompt()" value="Ponavljanje" />
+			<input type="button" onclick="Radi()" value="Radi" />
+			<input type="button" onclick="kub_i_kvadrat()" value="Kvadrat i kub" />
+			<input type="button" onclick="na_kvadrat()" value="Kvadrat" />
+		</form>
+	</body>
+</html>

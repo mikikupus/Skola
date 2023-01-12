@@ -1,0 +1,67 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+	    function Izracunaj() {
+                document.forma.tbunetiniz.value = document.forma.tbsumaniza.value = document.forma.tbprosek.value = document.forma.tbveciodproseka.value = "";
+		var niz_elemenata = Array();
+		let broj_elemenata = document.forma.tbbrojelemenata.value;
+		var za_textbox = 0; 
+		for (let i = 0; i < broj_elemenata; i++) {
+			za_textbox = Number(prompt("Unesi " + i + ". element:"));
+			document.forma.tbunetiniz.value += za_textbox + " ";
+                niz_elemenata.push(za_textbox);
+		}
+                let suma = Suma(niz_elemenata)
+                let prosek = Prosek(suma,broj_elemenata)
+                let veciodproseka = veci_od_proseka(prosek,niz_elemenata)
+                document.forma.cbsuma.checked ? document.forma.tbsumaniza.value = suma : document.forma.tbsumaniza.value = "";
+                document.forma.cbprosek.checked ? document.forma.tbprosek.value = prosek : document.forma.tbprosek.value = "";
+                document.forma.cbveciprosek.checked ? document.forma.tbveciodproseka.value = veciodproseka : document.forma.tbveciodproseka.value = "";
+	    }
+            function Suma(niz_elemenata)
+            {
+                let suma = 0;
+                for(let i =0;i<niz_elemenata.length;i++)
+                {
+                    suma = suma + niz_elemenata[i];
+                }
+                return suma;
+            }
+            function Prosek(suma,broj_elemenata)
+            {
+                var prosek = 0;
+                prosek = suma / broj_elemenata;
+                return prosek;
+            }
+            function veci_od_proseka(prosek,niz_elemenata)
+            {
+                let veci = "";
+                for(let i =0;i<niz_elemenata.length;i++)
+                {
+                    if(niz_elemenata[i] > prosek)
+                    {
+                        veci += " " + niz_elemenata[i];
+                    }
+                }
+                return veci;
+            }
+		</script>
+		<title>Document</title>
+	</head>
+	<body>
+        <form name="forma">
+            <p>Unesi broj elemenata niza: <input type="text" name="tbbrojelemenata"/></p>
+            <input type="checkbox" name="cbsuma"/> SUMA <br>
+            <input type="checkbox" name="cbprosek"/> PROSEK </br>
+            <input type="checkbox" name="cbveciprosek"/> VECI OD PROSEKA </br>
+            <input type="button" name="btracunaj" value="RACUNAJ" onclick="Izracunaj()">
+            <p>UNETI NIZ<input type="text" name="tbunetiniz"/></p>
+            <p>SUMA NIZA<input type="text" name="tbsumaniza"/></p>
+            <p>PROSEK<input type="text" name="tbprosek"/></p>
+            <p>VECI OD PROSEKA<input type="text" name="tbveciodproseka"/></p>
+        </form>
+    </body>
+</html>

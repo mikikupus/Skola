@@ -1,0 +1,133 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			let pozicijateksta = 0;
+			let tekst = "TS Smederevo, Ime i Prezime";
+			let slike = [
+				"slike/slika1.png",
+				"slike/slika2.png",
+				"slike/slika3.png",
+				"slike/slika4.png",
+			];
+			let trenutnaslika = 0;
+			let pauzirano = false;
+			let ss = 0;
+			function uskroluje() {
+				pozicijateksta = (pozicijateksta + 1) % tekst.length;
+				let a = tekst.split("");
+				for (let i = 0; i < pozicijateksta; i++) {
+					a.shift();
+					a.push(tekst[i]);
+				}
+				document.getElementById("tekstgore").innerHTML = a.join("");
+			}
+			function slajdujslike() {
+				if (!pauzirano) {
+					trenutnaslika = (trenutnaslika + 1) % 4;
+					document.getElementById("slikaneka").style.backgroundImage =
+						"url('" + slike[trenutnaslika] + "')";
+				}
+			}
+			function nastavislajdsou() {
+				pauzirano = false;
+			}
+			function stavisliku(n) {
+				pauzirano = true;
+				trenutnaslika = n;
+				document.getElementById("slikaneka").style.backgroundImage =
+					"url('" + slike[n] + "')";
+			}
+			let zavrseno = false;
+			function kraj() {
+				zavrseno = !zavrseno;
+				if (zavrseno) {
+					clearInterval(ss);
+				} else {
+					ss = setInterval(slajdujslike, 1000);
+				}
+				document.getElementById("dugmekraj").value = zavrseno
+					? "Pocetak"
+					: "Kraj";
+			}
+			function vremeuradi() {
+				let d = new Date();
+			}
+		</script>
+		<style>
+			body {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			.slikaneka {
+				background-image: url("slika1.png");
+				width: 400px;
+				height: 400px;
+				background-size: cover;
+				background-origin: content-box;
+			}
+			.slikanekadruga {
+				width: 80px;
+				height: 80px;
+				background-color: black;
+				display: inline-block;
+				margin-top: 30px;
+				margin-left: 1px;
+				margin-right: 21px;
+				background-size: cover;
+			}
+			#slika1 {
+				background-image: url("slike/slika1.png");
+			}
+			#slika2 {
+				background-image: url("slike/slika2.png");
+			}
+			#slika3 {
+				background-image: url("slike/slika3.png");
+			}
+			#slika4 {
+				background-image: url("slike/slika4.png");
+			}
+		</style>
+	</head>
+	<body
+		onload="setInterval(uskroluje,100); ss=setInterval(slajdujslike,1000); setInterval(vremeuradi,1000)"
+	>
+		<p id="tekstgore">TS Smederevo, Ime i Prezime</p>
+		<div>
+			<div class="slikaneka" id="slikaneka"></div>
+			<div
+				class="slikanekadruga"
+				id="slika1"
+				onmouseenter="stavisliku(0)"
+				onmouseout="nastavislajdsou()"
+			></div>
+			<div
+				class="slikanekadruga"
+				id="slika2"
+				onmouseenter="stavisliku(1)"
+				onmouseout="nastavislajdsou()"
+			></div>
+			<div
+				class="slikanekadruga"
+				id="slika3"
+				onmouseenter="stavisliku(2)"
+				onmouseout="nastavislajdsou()"
+			></div>
+			<div
+				class="slikanekadruga"
+				id="slika4"
+				onmouseenter="stavisliku(3)"
+				onmouseout="nastavislajdsou()"
+			></div>
+		</div>
+		<p id="vreme">21/03/2022<br />hh:mm:ss</p>
+		<input type="button" onclick="kraj()" value="Kraj" id="dugmekraj" />
+	</body>
+</html>
