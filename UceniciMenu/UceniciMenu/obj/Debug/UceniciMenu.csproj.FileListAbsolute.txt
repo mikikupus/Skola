@@ -1,0 +1,13 @@
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.csproj.AssemblyReference.cache
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.csproj.SuggestedBindingRedirects.cache
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.Properties.Resources.resources
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.csproj.GenerateResource.cache
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.csproj.CoreCompileInputs.cache
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\bin\Debug\UceniciMenu.exe.config
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\bin\Debug\UceniciMenu.exe
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\bin\Debug\UceniciMenu.pdb
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.exe
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.pdb
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.res.resources
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.GlavnaForma.resources
+D:\InformacioneTehnologije\Programiranje\4\UceniciMenu\UceniciMenu\obj\Debug\UceniciMenu.UcenikForm.resources

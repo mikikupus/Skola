@@ -1,0 +1,11 @@
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\bin\Debug\PravougaonikGrafika.exe.config
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\bin\Debug\PravougaonikGrafika.exe
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\bin\Debug\PravougaonikGrafika.pdb
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.csproj.AssemblyReference.cache
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.csproj.SuggestedBindingRedirects.cache
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.Form1.resources
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.Properties.Resources.resources
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.csproj.GenerateResource.cache
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.csproj.CoreCompileInputs.cache
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.exe
+D:\InformacioneTehnologije\Programiranje\Random\PravougaonikGrafika\PravougaonikGrafika\obj\Debug\PravougaonikGrafika.pdb
